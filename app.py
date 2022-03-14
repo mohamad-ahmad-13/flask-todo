@@ -5,9 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-db.create_all()
+# db = SQLAlchemy(app)
+# db.create_all()
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,8 +18,8 @@ class Todo(db.Model):
 
 @app.route('/')
 def index():
-    todo_list = Todo.query.all()
-    return render_template('base.html', items=todo_list)
+    # todo_list = Todo.query.all()
+    return render_template('base.html')
 
 # @app.route('/add', methods=['POST'])
 # def add():
